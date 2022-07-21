@@ -1,0 +1,648 @@
+
+body{
+  min-height: 100hv;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFFFFF;
+  color: #211F67;
+  font-family:'Poppins', sans-serif; 
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+}
+
+
+header{
+  padding: 30px;
+  padding-top: 40px;
+  padding-bottom: 42px;
+}
+
+div.title, .box-container{
+  width: 90%;
+  height: autopx;
+  margin: 20px 10px 10px 10px;
+   padding-right: 22px;
+  padding-left: 22px;
+  display: inline-block;
+  
+/*font style*/
+font-family: 'Poppins', sans-serif;
+font-style: normal;
+font-weight: bold;
+font-size: 20px;
+line-height: 30px;
+color: #211F67;
+}
+/*navigation bar buttons*/
+.chefLogin, .logout, .deliveryLogin {
+  width: 130px;
+  height: 48px;
+  background-color: #FFFFFF;
+  border-radius: 50px;
+  margin: 14px 16px;
+  
+/*font style*/    
+color: #211F67;
+font-family: 'Poppins', sans-serif;
+font-style: normal;
+font-weight: 650;
+font-size: 18px;
+line-height: 10px;
+text-align: center;
+}
+
+
+.logout a{
+  text-decoration: none;
+  color: #211F67;
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 991px) {
+.deliveryLogin{
+  line-height: 15px;
+  width: 135px;
+  height: 52px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+.deliveryLogin, .chefLogin {
+  width: 180px;
+  font-size: 16px;
+  line-height: 15px;
+}
+}
+
+
+div.chefLogin a, div.deliveryLogin a{
+text-decoration: none;
+color: inherit;
+}
+
+.deliveryLogin{
+width: 150px;
+}
+
+div.col-sm-12{
+justify-content: center;
+flex-direction: column;
+float:right
+}
+
+.temp {
+display: inline-flex;        
+justify-content: center; 
+align-items: center;
+text-align: center;
+
+margin-right: 10px;
+width: 75px;
+height: 75px;
+font-size: 16px;
+border-radius: 50%;
+color: #fef;
+background: #5D5C9B
+}
+
+.settings-sub{
+  font-weight: normal;
+  font-size: 14px;
+  padding-left: 10px;
+}
+
+.categories{
+  display: flex;
+  margin: 15px 12px 0px 12px;
+  padding-left: 16px;
+}
+
+@media screen and (min-width: 600px) {
+.categories {
+  margin-right: 15%;
+  margin-left: 15%;
+  }
+}
+
+.category, .box-container{
+  flex: 1;
+  flex-direction: column;
+  height: 175px;
+  width: 187px;
+  padding:15px;
+  border-radius: 20px;
+  background-color: #fff;
+  margin-right: 16px;
+  box-shadow: 1px 1px 2px 2px #5d5c9b6b inset;
+  
+/*font style*/    
+font-weight: bold;
+font-size: 16px;
+line-height: 27px;
+text-align: left;
+}
+
+div.category:hover {
+background-color: #E6EAF5;
+}
+
+div.category ul{
+  list-style-type:none; font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px; 
+  padding-left: 0px;
+  padding-top: 20px;
+  justify-content: center;
+  width: 90%;
+  margin: auto;
+  
+}
+
+.icons-img{
+  float: left;
+  width: 30px !important;
+  height: 30px !important;
+  padding-right: 5px;
+}
+
+.switchIconText{
+list-style-type: none;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 15px;
+  padding-left: 0px;
+  padding-top: 10px;
+  justify-content: center;
+  width: 100%;
+  
+}
+.category-parah{
+  list-style-type:none; font-style: normal;
+  font-size: 12px;
+  padding-left: 0px;
+text-align: left;
+  width: 100%;
+}
+
+.switch-img{
+  vertical-align: left;
+}
+
+@media only screen and (max-width:390px)  {
+  .category-parah{
+    font-size: 10px;
+  }
+}
+
+.report-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 18px;
+  margin-bottom: 20px;
+  margin-top: 15px;
+}
+
+td, th {
+  border: 1px solid #5D5C9B;
+  text-align: left;
+  padding: 5px;
+}
+.view-full-list-btn{
+  width: 127.02px;
+  height: 44.07px;
+  margin: 0 auto;
+  display: block;
+  background: #5D5C9B;
+  border-radius: 20px;
+  color: #E6EAF5;
+}
+
+#navsection{
+  background-color: #5D5C9B;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav.navigation{
+display: none;
+}
+
+nav.navigation.active{
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+position: absolute;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+background-color: #5D5C9B;
+z-index: 1;
+}
+
+nav.navigation.active a {
+padding: 20px;
+color: white;
+font-size: 20px;
+font-weight: bold;
+text-decoration: none;
+}
+
+img.menus.hide{
+display: none;
+}
+
+img.close{
+display: none;
+ z-index: 2;
+ position: relative;
+}
+
+img.close.show{
+display: flex;
+}
+
+@media only screen and (min-width:991px) {
+nav.navigation{
+  display: flex;
+  }
+div.toggleBox{
+  display: none;
+  }
+nav.navigation a{
+  font-size: 16px;
+  padding: 11px;
+  color: #FFFFFF;
+  font-weight: bold;
+  text-decoration: none;
+  }
+div.category ul{
+  font-size: 18px;
+  line-height: 26px;
+  }
+.category-parah{
+  font-size: 18px;
+  padding-top: 10px
+  }
+button.controlbuttons{
+  font-size: 16px;
+  width: 140px;
+  height: 45px;
+  }
+} 
+
+* {
+box-sizing: border-box;
+}
+
+.loginimgcontainer{
+padding-top: 20%;
+}
+
+img.avatar{
+display: block;
+margin-left: auto;
+margin-right: auto;
+}
+
+.column{
+display:table;
+height:100%;
+margin: 0 auto;
+}
+.form-contents {
+padding: 10px 70px 80px 70px;
+margin: 20px 20px 20px;
+}
+
+.stockForm{
+  
+  padding: 10px 30px 80px 30px;
+margin: 20px 10px 10px;
+}
+
+form.loginform{
+display:table-cell;
+  vertical-align:middle; 
+}
+
+
+
+.loginBotton{
+float: left;
+width: 100%;
+}
+
+input[type=text], input[type=password], input[type=date], textarea.commentBox, select {
+width: 100%;
+padding: 15px;
+margin: 5px 0 20px 0;
+display: inline-block;
+border: none;
+  border-radius: 35px;
+  border: 1px solid;
+}
+
+input[type=text]:focus, input[type=password]:focus, input[type=date]:focus, textarea.commentBox:focus {
+background-color: #fff;
+}
+
+textarea.commentBox{
+min-width: 100%;
+  min-height: 100px;
+  max-width: 80px;
+  max-height: 100px;
+  font-size: 16px;
+}
+
+.loginButton {
+background-color: #211F67;
+color: white;
+padding: 20px 20px;
+border-radius: 30px;
+margin: 10px 0;
+border: none;
+cursor: pointer;
+width: 100%;
+font-size: 20px;
+}
+
+.homeOne, .homeTwo, .homeThree{
+scroll-snap-align: start;
+display: flex;
+justify-content: center;
+height: 100vh;
+align-items: center;
+color: #000;
+font-size: 30px ;
+}
+
+.homeOne{
+background-color: #FFFFFF;
+background: url("../images/smartfridgebackgroundimg.png");
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+.homeTwo{
+background-color: #FFFDD0;
+background: url("../images/deliverybackgroundimg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+.homeThree{
+background-color: #FFFFFF;
+background: url("../images/chefindex.jpg");
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size: cover;
+
+}
+div.pageInfo{
+ width: 400px;
+  height: auto;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.37);
+backdrop-filter: blur(5px);
+}
+
+.homeContainer{
+scroll-snap-type: y mandatory;
+height: 100vh;
+overflow-y: scroll;
+}
+
+body::-webkit-scrollbar {
+display: none; /* for Chrome, Safari, and Opera */
+}
+
+.column2{
+ display:none;
+width: 300px;
+  height: 200px;
+  line-height: 50px;
+  position: fixed;
+  top: 50%; 
+  left: 50%;
+  margin-top: -100px;
+  margin-left: -150px;
+  background-color: #5D5C9B;
+  border-radius: 5px;
+  text-align: center;
+  z-index: 11; /* 1px higher than the overlay layer */
+  color: #fff;
+  font-size: 20px;
+}
+
+.controlbuttons, .alertButtons{
+width: 100px;
+height: 38px;
+background-color: #FFFFFF;
+border-radius: 50px;
+margin-top: 8px;
+font-weight: 650;
+font-size: 13px;
+}
+
+
+.adminbuttons{
+width: 130px;
+height: 40px;
+background-color: #FFFFFF;
+border-radius: 50px;
+margin-top: 8px;
+font-weight: 650;
+font-size: 15px;
+display: block;
+margin: auto;
+}
+.send-report-btn{
+width: 127.02px;
+height: 44.07px;
+margin: 0 auto;
+display: block;
+background: #5D5C9B;
+border-radius: 20px;
+color: #E6EAF5;
+}
+.save-btn{
+width: 127.02px;
+height: 44.07px;
+margin: 0 auto;
+display: block;
+background: #5D5C9B;
+border-radius: 20px;
+color: #E6EAF5;
+}
+.icons-img2{
+float: left;
+width: 30px !important;
+height: 30px !important;
+padding-right: 5px;
+}
+.back-btn{
+float: left;
+width: 30px !important;
+height: 30px !important;
+padding-right: 5px;
+}
+.submit-btn{
+width: 127.02px;
+height: 44.07px;
+margin: 0 auto;
+display: block;
+background: #5D5C9B;
+border-radius: 20px;
+color: #E6EAF5;
+}
+
+
+
+/*Reference - https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal */
+/* The Modal (background) */
+.modal {
+display: none; /* Hidden by default */
+position: fixed; /* Stay in place */
+z-index: 1; /* Sit on top */
+left: 0;
+top: 0;
+width: 100%; /* Full width */
+height: 100%; /* Full height */
+overflow: auto; /* Enable scroll if needed */
+background-color: rgba(255, 255, 255, 0.432); /* Fallback color */
+
+}
+
+/* Modal Content */
+.modal-content {
+padding: 15px;
+border: 1px solid #888;
+width: 320px;
+height: 500px;
+position: fixed;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+background-color: #5D5C9B;
+border-radius: 5px;
+text-align: center;
+color: #fff;
+}
+/* save chnages and cancel buttons on modal */
+.alertButtons{
+margin-top: 45px
+}
+
+/* The Close Button */
+.close {
+color: #aaaaaa;
+float: right;
+font-size: 28px;
+font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+color: #000;
+text-decoration: none;
+cursor: pointer;
+}
+
+
+/*toggle switch reference: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_switch*/
+.toggleSwitch { /*label*/
+vertical-align: middle;
+position: relative;
+display: inline-block;
+width: 55px;
+height: 29px;
+}
+.toggleSwitch input { 
+opacity: 0;
+width: 0;
+height: 0;
+}
+.slider {
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+position: absolute;
+cursor: pointer;
+background-color: #7c7abb;
+-webkit-transition: .8s;
+transition: .8s;
+}
+.slider:before {
+position: absolute;
+content: "";
+width: 21px;
+left: 4px;
+bottom: 4px;
+height: 21px;
+background-color: #FFFFFF;
+-webkit-transition: .8s;
+transition: .8s;
+}
+input:checked + .slider {
+background-color: #211F67;
+}
+input:checked + .slider:before {
+-webkit-transform: translateX(26px);
+-ms-transform: translateX(26px);
+transform: translateX(25px);
+}
+.slider.round:before {
+border-radius: 55%;
+}
+.slider.round {
+border-radius: 50px;
+}  /* end of toggle switch */
+
+.switchWrap{ /*toggle & text container*/
+display: flex;
+margin-bottom: 15px;
+}
+div.alertText{ /*alert text*/
+font-size: 15px;
+text-align: left;
+width: 70%;
+}
+
+
+.banana{
+  position: absolute;
+  top: 200px;
+  left: 350px;
+
+}
+
+.btn{
+  text-decoration: none;
+  margin-left: 20px;
+  background-color:#5D5C9B;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+}
+
+table{
+  border-collapse: collapse;
+  width: 70%;
+  line-height: 18px;
+  margin-bottom: 20px;
+  margin-top: 15px;
+  margin-left: auto; 
+  margin-right: auto;
+}

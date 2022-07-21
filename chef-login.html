@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/stylesheet.css">
+    <script type="text/javascript" src="scripts/javascript.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <title>Smart Fridge</title>
+</head>
+<body>
+
+    <section>
+         <section id="navsection">
+            <div class="toggleBox">
+                <a onclick="displayMenu()" href="#"><img class="menus" src="images/left-alignment.png" alt="menubuttons">
+                    <img class="close" src="images/closetoggle.png" alt="toogle close button" ></a>
+             </div>
+            <nav class="navigation">
+                <a href="index.php">Home</a>
+            </nav>
+            <div class="deliveryLogin"><a href="delivery-login.html"><p>Delivery Login</p></a></div>
+        </section>
+
+
+        <main>
+            <div class="column">
+                <form class="loginform" action="database/login.php?option=1" method="post" >
+                    <div class="loginimgcontainer">
+                        <img src="images/cheflogin.svg" alt="Avatar" class="avatar">
+                      </div>
+                    <div class="form-contents">   
+                    <h1 style="text-align: center">Login</h1>
+                    <hr>
+       
+                    Email Address:
+                    <label for="email"></label>
+                    <input type="text" placeholder="chef@hotmail.co.uk" pattern="[^ @]*@[^ @]*" name="email" required>
+                    Password:
+                    <label for="password"></label>
+                    <input type="password" placeholder="Enter Password" name="password" required>
+       
+                    <div class="submit">
+                        <button type="submit" class="loginButton">Login</button>
+                    </div>
+                    </div>
+                </form>
+            </div>
+            
+        </main>
+            
+        
+    </section>
+    
+</body>
+</html>
