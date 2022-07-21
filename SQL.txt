@@ -1,0 +1,284 @@
+-- phpMyAdmin SQL Dump
+-- version 5.1.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Feb 12, 2022 at 12:38 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.2
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `smartfridgedb`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `activity`
+--
+
+CREATE TABLE `activity` (
+  `activityID` int(11) NOT NULL,
+  `userID` int(11) NOT NULL,
+  `itemID` int(11) NOT NULL,
+  `action` varchar(255) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `time` time NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `activity`
+--
+
+INSERT INTO `activity` (`activityID`, `userID`, `itemID`, `action`, `quantity`, `date`, `time`) VALUES
+(1, 1, 2, 'remove', 1, '2022-01-29', '15:00:00'),
+(2, 1, 5, 'delivery', 2, '2022-01-31', '12:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `health`
+--
+
+CREATE TABLE `health` (
+  `ID` int(11) NOT NULL,
+  `userID` int(11) NOT NULL,
+  `fridgeCondition` varchar(255) NOT NULL,
+  `comments` varchar(1000) NOT NULL,
+  `date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `health`
+--
+
+INSERT INTO `health` (`ID`, `userID`, `fridgeCondition`, `comments`, `date`) VALUES
+(3, 1, '0', 'fridge is not good enough, get it sorted.', '2022-02-01'),
+(4, 2, '4', 'fridge is clean enough, could be better', '2022-02-11');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `items`
+--
+
+CREATE TABLE `items` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `quantity` int(255) NOT NULL,
+  `weight` double NOT NULL,
+  `expires` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `items`
+--
+
+INSERT INTO `items` (`id`, `name`, `quantity`, `weight`, `expires`) VALUES
+(1, 'eggs', 9, 325, 10),
+(2, 'beef', 6, 1000, 10),
+(3, 'chicken', 5, 750, 8),
+(4, 'salmon', 3, 6000, 7),
+(5, 'strawberry jam', 2, 1000, 6),
+(6, 'pasta', 5, 20000, 10),
+(7, 'butter', 8, 3500, 5),
+(8, 'baked beans', 3, 1200, 10),
+(9, 'cheese', 11, 5000, 2),
+(10, 'Brocolli', 20, 800, 4),
+(11, 'ham', 3, 1500, 3),
+(12, 'turkey', 1, 5000, 7),
+(13, 'Bananas', 11, 1000, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `ID` int(11) NOT NULL,
+  `itemID` int(11) NOT NULL,
+  `dateOrdered` date NOT NULL,
+  `Status` varchar(255) NOT NULL,
+  `supplier` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`ID`, `itemID`, `dateOrdered`, `Status`, `supplier`) VALUES
+(2, 12, '2022-02-04', 'not-delivered', 'Cow-Mills'),
+(3, 4, '2022-02-10', 'delivered', 'Tesco'),
+(5, 6, '2022-02-11', 'not-delivered', 'The Nottingham Butchers'),
+(6, 1, '2022-02-09', 'delivered', 'Cow-Mills');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `suppliers`
+--
+
+CREATE TABLE `suppliers` (
+  `supplierID` int(11) NOT NULL,
+  `Name` varchar(255) NOT NULL,
+  `phoneNumber` varchar(11) NOT NULL,
+  `items` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `suppliers`
+--
+
+INSERT INTO `suppliers` (`supplierID`, `Name`, `phoneNumber`, `items`) VALUES
+(1, 'Tesco', '1503124607', 'Vegetables'),
+(2, 'The Nottingham Butchers', '1509895612', 'Meat'),
+(3, 'Cow-Mills', '1309140982', 'Diary');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `ID` int(11) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `role` varchar(255) NOT NULL,
+  `level` varchar(50) NOT NULL DEFAULT 'user'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`ID`, `email`, `password`, `role`, `level`) VALUES
+(1, 'hello@gmail.com', '1234', 'chef', 'admin'),
+(2, 'banana@hotmail.com', '2222', 'delivery', 'user');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `activity`
+--
+ALTER TABLE `activity`
+  ADD PRIMARY KEY (`activityID`),
+  ADD KEY `userID` (`userID`),
+  ADD KEY `itemID` (`itemID`);
+
+--
+-- Indexes for table `health`
+--
+ALTER TABLE `health`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `userID` (`userID`);
+
+--
+-- Indexes for table `items`
+--
+ALTER TABLE `items`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `itemID` (`itemID`),
+  ADD KEY `supplier` (`supplier`);
+
+--
+-- Indexes for table `suppliers`
+--
+ALTER TABLE `suppliers`
+  ADD PRIMARY KEY (`supplierID`),
+  ADD KEY `Name` (`Name`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `activity`
+--
+ALTER TABLE `activity`
+  MODIFY `activityID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `health`
+--
+ALTER TABLE `health`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `items`
+--
+ALTER TABLE `items`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `suppliers`
+--
+ALTER TABLE `suppliers`
+  MODIFY `supplierID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `activity`
+--
+ALTER TABLE `activity`
+  ADD CONSTRAINT `activity_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `users` (`ID`),
+  ADD CONSTRAINT `activity_ibfk_2` FOREIGN KEY (`itemID`) REFERENCES `items` (`id`);
+
+--
+-- Constraints for table `health`
+--
+ALTER TABLE `health`
+  ADD CONSTRAINT `health_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `users` (`ID`);
+
+--
+-- Constraints for table `orders`
+--
+ALTER TABLE `orders`
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`itemID`) REFERENCES `items` (`id`),
+  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`supplier`) REFERENCES `suppliers` (`Name`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
